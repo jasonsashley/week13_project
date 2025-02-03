@@ -21,5 +21,12 @@ public class GlobalErrorHandler {
 		log.error("Exception {}", ex.toString());
 		return Map.of("message", ex.toString());
 	}
+	
+	@ExceptionHandler(IllegalArgumentException.class)
+	@ResponseStatus(code = HttpStatus.FORBIDDEN)
+	public Map<String, String> handleIllegalArguement(IllegalArgumentException ex){
+		log.error("Exception {}", ex.toString());
+		return Map.of("message", ex.toString());
+	}
 
 }
